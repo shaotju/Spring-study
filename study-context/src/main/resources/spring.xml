@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<bean id="parent"  abstract="true" >-->
+        <!--<property name="name" value="Yang Kang" />-->
+     <!--</bean>-->
+    <!--<bean id="child" class="canger.study.context.animinal.Child" parent="parent">-->
+        <!--<property name="age" value="18"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="dog" class="canger.study.context.animinal.DogFactory" factory-method="createDog">-->
+        <!--<constructor-arg index="0" value="James"/>-->
+    <!--</bean>-->
+
+    <bean id="cat" name="little ketty" class="canger.study.context.animinal.Cat" autowire="byType">
+        <property name="name" value="Hello Ketty"/>
+        <property name="food">
+            <ref bean="food" />
+        </property>
+        <property name="clazz" value="canger.study.context.animinal.Food"/>
+    </bean>
+
+
+    <bean id="food" class="canger.study.context.animinal.Food">
+        <property name="type" value="meet"/>
+    </bean>
+    <bean  class="canger.study.context.animinal.Food" autowire-candidate="false">
+        <property name="type" value="vege"/>
+    </bean>
+
+    <bean id="str1" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="123"/>
+    </bean>
+
+    <context:component-scan base-package="canger.study.context.extend,canger.study.context.scanned"/>
+</beans>

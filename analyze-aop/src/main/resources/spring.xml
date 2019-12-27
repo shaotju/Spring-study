@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="assistantBean" class="canger.analyze.aop.aspect.AssistantBean"/>
+
+    <aop:config>
+        <aop:pointcut id="divPointcut" expression="execution(public int canger.analyze.aop..*.div(..))"/>
+        <aop:aspect id="xmlAspect" ref="assistantBean">
+            <aop:before method="before" pointcut-ref="divPointcut"/>
+            <aop:after method="after" pointcut-ref="divPointcut"/>
+            <aop:after-returning method="afterReturn" pointcut-ref="divPointcut"/>
+            <aop:around method="around" pointcut-ref="divPointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="analyzeService" class="canger.analyze.aop.service.impl.AnalyzeServiceImpl"/>
+</beans>
