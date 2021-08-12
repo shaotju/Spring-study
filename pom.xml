@@ -16,6 +16,7 @@
         <module>lookup-method</module>
         <module>test-web</module>
         <module>analyze-aop</module>
+        <module>circular-reference</module>
     </modules>
 
     <dependencies>
