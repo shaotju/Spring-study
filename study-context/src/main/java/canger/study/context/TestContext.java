@@ -6,7 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestContext {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-circular.xml");
         String[] beanDefinitionNames = context.getBeanDefinitionNames();
         for (int i = 0; i < beanDefinitionNames.length; i++) {
             System.out.println(beanDefinitionNames[i]);
