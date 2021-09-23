@@ -17,6 +17,7 @@
         <module>test-web</module>
         <module>analyze-aop</module>
         <module>circular-reference</module>
+        <module>study-configuration</module>
     </modules>
 
     <dependencies>
